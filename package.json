@@ -1,0 +1,21 @@
+{
+  "name": "riamp3",
+  "productName": "RIAMP3",
+  "version": "1.1.0",
+  "description": "RIAMP3 \u2014 music library and player with a Vercel web deployment and optional Windows desktop shell",
+  "main": "main.js",
+  "author": "RIAMP3 contributors",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "serve": "node lib/server.mjs",
+    "check": "node --check main.js && node --check preload.js && node --check api/[...route].js && node --check public/app.js && node --check public/catalog.js && node --check lib/server.mjs && node --check test/smoke.test.mjs && node --check test/vercel-adapter.test.mjs",
+    "pack": "electron-packager . RIAMP3 --platform=win32 --arch=x64 --out=dist --overwrite --app-version=1.1.0 --ignore=^/(dist|node_modules|.git|.vercel)$",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "@electron/packager": "^18.3.6"
+  }
+}
